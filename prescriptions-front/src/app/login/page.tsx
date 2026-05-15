@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { homePathForRole } from "@/lib/auth";
 import { useAuthStore } from "@/store/auth-store";
@@ -9,9 +9,19 @@ import { useAuthStore } from "@/store/auth-store";
 export default function LoginPage() {
   const router = useRouter();
   const loginWithPassword = useAuthStore((s) => s.loginWithPassword);
+  const hasHydrated = useAuthStore((s) => s.hasHydrated);
+  const accessToken = useAuthStore((s) => s.accessToken);
+  const user = useAuthStore((s) => s.user);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!hasHydrated) return;
+    if (accessToken && user) {
+      router.replace(homePathForRole(user.role));
+    }
+  }, [hasHydrated, accessToken, user, router]);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
