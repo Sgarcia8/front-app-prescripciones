@@ -86,7 +86,7 @@ export default function AdminDashboardPage() {
     <div className="flex flex-col gap-8">
       <div>
         <h1 className="app-page-title">Dashboard admin</h1>
-        <p className="app-subtitle">Rango: últimos 30 días (filtrado en API)</p>
+        <p className="app-subtitle">Rango: últimos 30 días</p>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">

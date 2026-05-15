@@ -11,5 +11,7 @@ export default defineConfig({
   },
   test: {
     environment: "node",
+    // Evita timeouts del pool "forks" al cargar jsdom en algunos entornos Windows.
+    pool: "threads",
   },
 });
