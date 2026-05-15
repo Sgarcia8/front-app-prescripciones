@@ -2,6 +2,10 @@
 
 Aplicación web para médicos, pacientes y administradores sobre el flujo de prescripciones digitales. Consume la API REST del backend NestJS.
 
+## URL Despliegue
+
+> **App prescripciones** https://front-app-prescripciones.onrender.com/login
+
 ## Stack
 
 | Tecnología | Uso |
